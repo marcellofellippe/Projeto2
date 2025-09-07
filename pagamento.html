@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pagamento - Coffeespresso</title>
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/product.css">
+  <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="css/modal.css">
+
+  <style>
+    .pagamento { margin-top: 20px; }
+    .pagamento .opcoes { display: flex; gap: 10px; margin-bottom: 20px; }
+    .pag-btn { flex: 1; padding: 10px; border: none; border-radius: 8px; background: #a18072; color: white; cursor: pointer; transition: 0.3s; }
+    .pag-btn:hover { background: #81665b; }
+    .pag-form { display: none; flex-direction: column; gap: 10px; margin-top: 15px; padding: 15px; border-radius: 8px; background-color: #f6f2f1; }
+    .pag-form input, .pag-form select { padding: 8px; border-radius: 6px; border: 1px solid #ccc; width: 100%; box-sizing: border-box; }
+    .pag-form button { padding: 10px; border: none; border-radius: 8px; background: #81665b; color: white; cursor: pointer; margin-top: 10px; }
+    .pag-form img { max-width: 150px; margin-bottom: 10px; }
+
+    #resumo-pedido { margin-top: 10px; }
+    #resumo-pedido .produto { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; }
+    #resumo-pedido .produto span { display: inline-block; }
+
+    #total-container { display: flex; justify-content: space-between; font-weight: bold; font-size: 18px; margin-top: 10px; padding-top: 10px; border-top: 2px solid #81665b; }
+
+    #resumo-pedido .produto.final { font-weight: 600; border-top: 2px dashed #eee; padding-top: 12px; }
+    .badge__quantity { background:#c06c4b; color:#fff; padding:2px 6px; border-radius:12px; font-size:12px; vertical-align:middle; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <img src="image/logo.svg" id="logo-header" alt="logo coffeespresso">
+      <a href="index.html" class="link__quantity">
+        <img src="image/Tote.svg" alt="Carrinho">
+        <span class="badge__quantity" id="badge">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="products__title">Finalizar Pagamento</h1>
+
+    <div class="cart__products" id="resumo-pedido"></div>
+
+    <div class="frete-calculo">
+      <label for="frete">Escolha o frete:</label>
+      <select id="frete">
+        <option value="0">Retirada grátis</option>
+        <option value="20">Delivery - R$ 20,00</option>
+      </select>
+    </div>
+
+    <div id="total-container">
+      Total: <span class="cart__total--value" id="total">R$ 0,00</span>
+    </div>
+
+    <div class="pagamento">
+      <h2 class="products__title">Escolha a forma de pagamento</h2>
+
+      <div class="opcoes">
+        <button class="pag-btn" data-tipo="pix">Pix</button>
+        <button class="pag-btn" data-tipo="cartao">Cartão</button>
+      </div>
+
+      <form id="pix-form" class="pag-form">
+        <p>Pague via Pix escaneando o QR code:</p>
+        <img src="image/pix.png" alt="Pague com Pix" style="width: 100%; height: auto;">
+        <button type="submit">Confirmar Pagamento Pix</button>
+      </form>
+
+      <form id="cartao-form" class="pag-form">
+        <div style="display: flex; gap: 10px; justify-content: center; align-items: center;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" width="50">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard" width="50">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="American Express" width="50">
+        </div>
+        <label>Nome no cartão</label>
+        <input type="text" placeholder="Seu nome" required>
+        <label>Número do cartão</label>
+        <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" required>
+        <label>Validade</label>
+        <input type="text" placeholder="MM/AA" maxlength="5" required>
+        <label>CVV</label>
+        <input type="text" placeholder="123" maxlength="3" required>
+        <button type="submit">Pagar com Cartão</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <section class="container" id="footer">
+      <img src="image/logo-02.svg" alt="logo coffeespresso">
+    </section>
+  </footer>
+
+  <script>
+    const resumoPedido = document.getElementById('resumo-pedido');
+    const totalSpan = document.getElementById('total');
+    const badge = document.getElementById('badge');
+    const freteSelect = document.getElementById('frete');
+    const pagBtns = document.querySelectorAll('.pag-btn');
+    const forms = document.querySelectorAll('.pag-form');
+
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+    function parsePrice(valor) {
+      if (!valor) return 0;
+      if (typeof valor === 'number') return valor;
+      let s = String(valor).replace(/[Rr]\$\s?/,'').replace(/\./g,'').replace(',', '.').trim();
+      const n = parseFloat(s);
+      return isNaN(n) ? 0 : n;
+    }
+
+    // Normaliza carrinho
+    carrinho = carrinho.map(item => ({
+      nome: item.nome ?? item.title ?? item.name ?? 'Produto',
+      quantidade: Number(item.quantidade || item.qty || 1),
+      preco: {
+        de: parsePrice(item.preco?.de ?? item.preco ?? item.price ?? 0),
+        por: parsePrice(item.preco?.por ?? item.preco ?? item.price ?? 0)
+      }
+    }));
+
+    function formatarPrecoBr(valor) {
+      return "R$ " + Number(valor).toFixed(2).replace('.', ',');
+    }
+
+    function montarResumo() {
+      resumoPedido.innerHTML = '';
+      let subtotal = 0;
+      let totalProdutos = 0;
+      let descontoTotal = 0;
+      let quantidadeTotal = 0;
+
+      if (!carrinho.length) {
+        resumoPedido.innerHTML = '<p>Seu carrinho está vazio.</p>';
+        badge.textContent = 0;
+        totalSpan.textContent = formatarPrecoBr(0);
+        return;
+      }
+
+      // Lista produtos
+      carrinho.forEach(item => {
+        const q = item.quantidade;
+        const precoPor = item.preco.por;
+        const precoDe = item.preco.de;
+
+        const div = document.createElement('div');
+        div.classList.add('produto');
+        const precoTexto = (precoDe > precoPor ? `<s>${formatarPrecoBr(precoDe)}</s> ` : '') + `${formatarPrecoBr(precoPor * q)}`;
+        div.innerHTML = `<span>${item.nome} x${q}</span><span>${precoTexto}</span>`;
+        resumoPedido.appendChild(div);
+
+        subtotal += precoDe * q;
+        totalProdutos += precoPor * q;
+        descontoTotal += (precoDe - precoPor) * q;
+        quantidadeTotal += q;
+      });
+
+      badge.textContent = quantidadeTotal;
+
+      const frete = parsePrice(freteSelect.value);
+
+      // Subtotal original
+      const linhaSubtotal = document.createElement('div');
+      linhaSubtotal.classList.add('produto', 'final');
+      linhaSubtotal.innerHTML = `<span>Subtotal</span><span>${formatarPrecoBr(subtotal)}</span>`;
+      resumoPedido.appendChild(linhaSubtotal);
+
+      // Desconto
+      const linhaDesconto = document.createElement('div');
+      linhaDesconto.classList.add('produto', 'final');
+      linhaDesconto.innerHTML = `<span>Desconto</span><span>- ${formatarPrecoBr(descontoTotal)}</span>`;
+      resumoPedido.appendChild(linhaDesconto);
+
+      // Frete
+      const linhaFrete = document.createElement('div');
+      linhaFrete.classList.add('produto', 'final');
+      linhaFrete.innerHTML = `<span>Frete</span><span>${formatarPrecoBr(frete)}</span>`;
+      resumoPedido.appendChild(linhaFrete);
+
+      // Total final = produtos com desconto + frete
+      const totalFinal = totalProdutos + frete;
+      totalSpan.textContent = formatarPrecoBr(totalFinal);
+    }
+
+    montarResumo();
+    freteSelect.addEventListener('change', montarResumo);
+
+    // Pagamento: mostrar formulário
+    pagBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        forms.forEach(f => f.style.display = 'none');
+        const form = document.getElementById(`${btn.dataset.tipo}-form`);
+        if (form) form.style.display = 'flex';
+      });
+    });
+
+    // Submit pagamento
+    forms.forEach(f => {
+      f.addEventListener('submit', e => {
+        e.preventDefault();
+        if (!carrinho.length) { alert('Seu carrinho está vazio!'); return; }
+        alert('Pagamento realizado com sucesso!');
+        localStorage.removeItem('carrinho');
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+</body>
+</html>

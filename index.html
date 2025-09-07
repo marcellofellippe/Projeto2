@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffeespresso</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/product.css">
+  <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+ 
+  <header class="header">
+    <div class="container">
+      <img src="image/logo.svg" id="logo-header" alt="logo coffeespresso">
+      <a href="#" id="carrinho-toggle" class="link__quantity">
+        <img src="image/Tote.svg" alt="Carrinho">
+        <span class="badge__quantity">0</span>
+      </a>
+    </div>
+  </header>
+
+  
+  <div class="cart" id="cart">
+    <div class="cart__header">
+      <h2>Seu Carrinho</h2>
+      <button id="cart-close">
+        <img src="image/X.svg" alt="Fechar carrinho">
+      </button>
+    </div>
+
+    
+    <div class="cart__products"></div>
+
+    <div class="cart__resumo">
+      <p>Subtotal: <span id="cart-subtotal">R$ 0,00</span></p>
+      <p>Desconto: <span id="cart-desconto">R$ 0,00</span></p>
+      <p><strong>Total: <span id="cart-total">R$ 0,00</span></strong></p>
+    </div>
+
+    <button id="finalizar-compra" class="btn">Finalizar Compra</button>
+  </div>
+
+  <div id="modal-compra" class="modal">
+    <div class="modal-content">
+      <h2>Confirmar Compra</h2>
+      <p>Deseja realmente finalizar a compra?</p>
+      <div class="modal-buttons">
+        <button id="modal-confirmar">Confirmar</button>
+        <button id="modal-cancelar">Cancelar</button>
+      </div>
+    </div>
+  </div>
+  
+  <main>
+    <section class="slogan">
+      <div class="container">
+        <h1 class="slogan__title">Fragrância e sabor elevados</h1>
+        <p class="slogan__text">
+          Explore nossa variedade de blends exclusivos e saboreie a perfeição em cada gole.
+        </p>
+      </div>
+    </section>
+
+    <div id="aviso-compra" class="aviso-compra"></div>
+
+    <section class="products">
+      <div class="container">
+        <h2 class="products__title">Clássicos</h2>
+        <div class="products__list" id="lista-classicos"></div>
+      </div>
+    </section>
+
+    <section class="products">
+      <div class="container">
+        <h2 class="products__title">Gelados</h2>
+        <div class="products__list" id="lista-gelados"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <section class="container" id="footer">
+      <img src="image/logo-02.svg" alt="logo coffeespresso">
+      <div class="footer__list">
+        <div class="footer__list--item">
+          <h3>Clássicos</h3>
+          <ul>
+            <li>Espresso</li>
+            <li>Americano</li>
+            <li>Cappuccino</li>
+            <li>Latte</li>
+            <li>Macchiato</li>
+            <li>Mocha</li>
+            <li>Irish Coffee</li>
+          </ul>
+        </div>
+        <div class="footer__list--item">
+          <h3>Gelados</h3>
+          <ul>
+            <li>Cold Brew</li>
+            <li>Frappuccino</li>
+            <li>Laranja e Tônica</li>
+            <li>Milk Shake</li>
+          </ul>
+        </div>
+        <div class="footer__list--item">
+          <h3>Veganos</h3>
+          <ul>
+            <li>Espresso</li>
+            <li>Americano</li>
+            <li>Cold Brew</li>
+            <li>Irish Coffee</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/index.js"></script>
+  
+  <script>
+    const btnFinalizar = document.getElementById("finalizar-compra");
+    btnFinalizar.addEventListener("click", function() {
+      window.location.href = "pagamento.html";
+    });
+  </script>
+</body>
+</html>
