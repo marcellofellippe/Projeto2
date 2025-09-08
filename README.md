@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <strong>Primeiro projeto Frontend – Segundo Desafio da Aceleradora Inclusiva</strong>
+  <strong>Primeiro projeto Frontend Dom– Segundo Desafio da Aceleradora Inclusiva</strong>
 </p>
 <p align="center">
   <strong>Alunos:</strong> Marcelo Felipe Andrade de Borba & Eduardo Silva<br>
