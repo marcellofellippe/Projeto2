@@ -1,7 +1,7 @@
 <h1 align="center">☕ CoffeEspresso</h1>
 
-> 🚫 Proibida a cópia ou uso não autorizado deste projeto.  
-> 📩 Para utilizar este código em estudos ou outros fins, entre em contato.
+<sub>🚫 Proibida a cópia ou uso não autorizado deste projeto.  
+📩 Para utilizar em estudos ou outros fins, entre em contato.</sub>
 
 <p align="center">
   <img src="image/logo.svg" alt="Café" width="300"/>
