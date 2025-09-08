@@ -36,7 +36,7 @@ O **Coffeespresso** é um site de e-commerce desenvolvido para uma cafeteria, pe
 ## 🛠 Tecnologias
 
 - HTML5
-- CSS3 / TailwindCSS
+- CSS / TailwindCSS
 - JavaScript
 - GitHub Pages
 
