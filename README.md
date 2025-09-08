@@ -1,4 +1,4 @@
-<h1 align="center">☕ Coffeespresso</h1>
+<h1 align="center">☕ CoffeEspresso</h1>
 <p align="center">
   <img src="https://media.giphy.com/media/3o6ZtpxSZbQRRnwCKQ/giphy.gif" alt="Café animado" width="150"/>
 </p>
@@ -20,7 +20,7 @@
 
 ## ✨ Sobre o projeto
 
-O **Coffeespresso** é um site de e-commerce desenvolvido para uma cafeteria, permitindo que os clientes visualizem e adquiram produtos de café de forma fácil e conveniente. Este projeto foi realizado como parte do segundo desafio da Aceleradora Inclusiva, com foco em HTML, CSS e JavaScript.
+O **CoffeEspresso** é um site de e-commerce desenvolvido para uma cafeteria, permitindo que os clientes visualizem e adquiram produtos de café de forma fácil e conveniente. Este projeto foi realizado como parte do segundo desafio da Aceleradora Inclusiva, com foco em HTML, CSS e JavaScript.
 
 ---
 
@@ -36,7 +36,7 @@ O **Coffeespresso** é um site de e-commerce desenvolvido para uma cafeteria, pe
 ## 🛠 Tecnologias
 
 - HTML5
-- CSS / TailwindCSS
+- CSS 
 - JavaScript
 - GitHub Pages
 
