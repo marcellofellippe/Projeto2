@@ -88,7 +88,7 @@ function alterarQuantidade(id, novaQtd) {
   if (item) {
     item.quantidade = Math.max(1, novaQtd);
 
-    // Atualiza input da página principal se existir
+    // Atualiza input da página 
     const idxProduto = dados.produtos.findIndex(p => p.id === item.idProduto);
     const inputSite = document.querySelector(`.product__quantity--input[data-idx="${idxProduto}"]`);
     if (inputSite) inputSite.value = item.quantidade;
