@@ -56,6 +56,8 @@ O **CoffeEspresso** é um site de e-commerce desenvolvido para uma cafeteria, pe
 
 ## ✍️ Autores
 
-**Marcelo Felipe Andrade de Borba**   
+Alunos:
+**Marcelo Felipe Andrade de Borba**  e  
 **Eduardo Silva**   
-**Tutora:** Amanda Oliveira
+_________________
+*Prof.:* Amanda Oliveira
