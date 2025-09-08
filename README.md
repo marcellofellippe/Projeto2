@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://media.giphy.com/media/3o6ZtpxSZbQRRnwCKQ/giphy.gif" alt="Café animado" width="150"/>
+  <img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUybHhvZTgxbjZiMTZycWFvNHFlNTZ4Y2trZGN6dGNnOG9yMDltdWNjOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/5ANApPcJ2erBwlXBSZ/giphy.gif"150"/>
 </p>
 
 <p align="center">
