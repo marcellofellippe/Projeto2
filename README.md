@@ -1,5 +1,9 @@
 <h1 align="center">☕ Coffeespresso</h1>
 <p align="center">
+  <img src="https://media.giphy.com/media/3o6ZtpxSZbQRRnwCKQ/giphy.gif" alt="Café animado" width="150"/>
+</p>
+
+<p align="center">
   <strong>Primeiro projeto Frontend – Segundo Desafio da Aceleradora Inclusiva</strong>
 </p>
 <p align="center">
@@ -53,6 +57,5 @@ O **Coffeespresso** é um site de e-commerce desenvolvido para uma cafeteria, pe
 ## ✍️ Autores
 
 **Marcelo Felipe Andrade de Borba**   
-**Eduardo Silva** 
-**Tutora:** Amanda Oliveira.
-
+**Eduardo Silva**   
+**Tutora:** Amanda Oliveira
