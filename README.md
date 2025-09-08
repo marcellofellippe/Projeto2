@@ -1,9 +1,58 @@
-PROJETO DESAFIO 2 FRONTEND DOM 
-ACELERADORA INCLUSIVA 2025
-Tutora Amanda Oliveira 
-Alunos: Marcelo Felipe Andrade de Borba, e Eduardo Silva 
+<h1 align="center">☕ Coffeespresso</h1>
+<p align="center">
+  <strong>Primeiro projeto Frontend – Segundo Desafio da Aceleradora Inclusiva</strong>
+</p>
+<p align="center">
+  <strong>Alunos:</strong> Marcelo Felipe Andrade de Borba & Eduardo Silva<br>
+  <strong>Tutora:</strong> Amanda Oliveira
+</p>
+<p align="center">
+  <a href="https://marcellofellippe.github.io/Projeto2/">
+    🔗 Acesse a versão online
+  </a>
+</p>
 
+---
 
-INTRODUÇÃO 
-      O projeto é um site de e-commerce para uma cafeteria que vende produtos de café online. O site permite que os clientes visualizem e comprem produtos de café de forma fácil e conveniente.
+## ✨ Sobre o projeto
+
+O **Coffeespresso** é um site de e-commerce desenvolvido para uma cafeteria, permitindo que os clientes visualizem e adquiram produtos de café de forma fácil e conveniente. Este projeto foi realizado como parte do segundo desafio da Aceleradora Inclusiva, com foco em HTML, CSS e JavaScript.
+
+---
+
+## 💻 Funcionalidades
+
+- Layout moderno e responsivo
+- Catálogo de produtos de café com imagens e preços
+- Carrinho de compras funcional
+- Navegação simples e intuitiva
+
+---
+
+## 🛠 Tecnologias
+
+- HTML5
+- CSS3 / TailwindCSS
+- JavaScript
+- GitHub Pages
+
+---
+
+## 🌐 Acesse Online
+
+[➡️ Clique aqui para ver o projeto no GitHub Pages](https://marcellofellippe.github.io/Projeto2/)
+
+---
+
+## 🏆 Badges
+
+![GitHub Repo Size](https://img.shields.io/github/repo-size/marcellofellippe/Projeto2)
+
+---
+
+## ✍️ Autores
+
+**Marcelo Felipe Andrade de Borba**   
+**Eduardo Silva** 
+**Tutora:** Amanda Oliveira.
 
