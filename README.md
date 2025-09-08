@@ -1,7 +1,7 @@
 <h1 align="center">☕ CoffeEspresso</h1>
 
 <p align="center">
-  <img src="image/logo.svg" alt="Café" width="200"/>
+  <img src="image/logo.svg" alt="Café" width="300"/>
 </p>
 
 <p align="center">
