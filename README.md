@@ -1,6 +1,6 @@
 <h1 align="center">☕ CoffeEspresso</h1>
 <p align="center">
-  <img src="imge/logotipo.svg" alt="cafe" width="80"/>
+  <img src="image/logo.svg" alt="cafe" width="200"/>
 </p>
 <p align="center">
   <img src="https://media.giphy.com/media/3o6ZtpxSZbQRRnwCKQ/giphy.gif" alt="Café animado" width="150"/>
