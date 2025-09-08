@@ -8,7 +8,7 @@
 </p>
 <p align="center">
   <strong>Alunos:</strong> Marcelo Felipe Andrade de Borba & Eduardo Silva<br>
-  <strong>Tutora:</strong> Amanda Oliveira
+  <strong>Prof.:</strong> Amanda Oliveira
 </p>
 <p align="center">
   <a href="https://marcellofellippe.github.io/Projeto2/">
