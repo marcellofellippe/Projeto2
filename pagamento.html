@@ -148,7 +148,7 @@
       return isNaN(n) ? 0 : n;
     }
 
-    // Normaliza carrinho
+    //Normaliza carrinho//
     carrinho = carrinho.map(item => ({
       nome: item.nome ?? item.title ?? item.name ?? 'Produto',
       quantidade: Number(item.quantidade || item.qty || 1),
@@ -176,7 +176,7 @@
         return;
       }
 
-      // Lista produtos
+      //Lista produtos//
       carrinho.forEach(item => {
         const q = item.quantidade;
         const precoPor = item.preco.por;
@@ -198,25 +198,25 @@
 
       const frete = parsePrice(freteSelect.value);
 
-      // Subtotal original
+      //Subtotal original//
       const linhaSubtotal = document.createElement('div');
       linhaSubtotal.classList.add('produto', 'final');
       linhaSubtotal.innerHTML = `<span>Subtotal</span><span>${formatarPrecoBr(subtotal)}</span>`;
       resumoPedido.appendChild(linhaSubtotal);
 
-      // Desconto
+      //Desconto//
       const linhaDesconto = document.createElement('div');
       linhaDesconto.classList.add('produto', 'final');
       linhaDesconto.innerHTML = `<span>Desconto</span><span>- ${formatarPrecoBr(descontoTotal)}</span>`;
       resumoPedido.appendChild(linhaDesconto);
 
-      // Frete
+      //Frete//
       const linhaFrete = document.createElement('div');
       linhaFrete.classList.add('produto', 'final');
       linhaFrete.innerHTML = `<span>Frete</span><span>${formatarPrecoBr(frete)}</span>`;
       resumoPedido.appendChild(linhaFrete);
 
-      // Total final = produtos com desconto + frete
+      //Total final = produtos com desconto + frete//
       const totalFinal = totalProdutos + frete;
       totalSpan.textContent = formatarPrecoBr(totalFinal);
     }
@@ -224,7 +224,7 @@
     montarResumo();
     freteSelect.addEventListener('change', montarResumo);
 
-    // Pagamento: mostrar formulário
+    //Pagamento: mostrar formulário//
     pagBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         forms.forEach(f => f.style.display = 'none');
@@ -233,7 +233,7 @@
       });
     });
 
-    // Submit pagamento
+    //Submit pagamento//
     forms.forEach(f => {
       f.addEventListener('submit', e => {
         e.preventDefault();
