@@ -15,7 +15,7 @@
   <strong>Primeiro Projeto Frontend Dom – Segundo Desafio da Aceleradora Inclusiva 2025</strong>
 </p>
 <p align="center">
-  <strong>Alunos:</strong> Marcelo Felipe Andrade de Borba & Eduardo Silva<br>
+  <strong>Alunos:</strong> Marcelo Felipe Andrade de Borba<br>
   <strong>Prof.:</strong> Amanda Oliveira
 </p>
 
@@ -72,6 +72,6 @@ O **CoffeEspresso** é um site de e-commerce desenvolvido para uma cafeteria, pe
 ## ✍️ Autores
 
 **Alunos:**  
-Marcelo Felipe Andrade de Borba & Eduardo Silva  
+Marcelo Felipe Andrade de Borba 
 
 **Prof.:** Amanda Oliveira
